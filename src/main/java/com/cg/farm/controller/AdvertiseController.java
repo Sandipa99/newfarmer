@@ -24,23 +24,29 @@ import com.cg.farm.service.AdvertisementServiceImpl;
 public class AdvertiseController {
 	
 	@Autowired
-	AdvertisementServiceImpl advService;
+	AdvertisementServiceImpl advService;//creating the object of AdvertisementServiceImpl
 	
 
-	@GetMapping("/test")
+	//getting all the details of Advertisement
+	@GetMapping("/getall")
 	ResponseEntity<List<Advertisement>> getAllAdvertisement() {
+		//getting the list of advertisement
 		List<Advertisement> advertisements= advService.getAllAdvertisement();
 		return new ResponseEntity<>(advertisements, HttpStatus.OK); // 200 ok
 	}
 	
+	//Adding the Advertisement
 	@PostMapping("/adv/add")
 	ResponseEntity<Advertisement> addAdvertisement(@RequestBody Advertisement advt) {
+		//adding the advertisement by passing the variable
 		Advertisement newAdvt = advService.addAdvertisement(advt);
 		return new ResponseEntity<>(newAdvt, HttpStatus.CREATED); // 201 created 
 	}
 	
+	//Deleting the Advertisement
 	@DeleteMapping("/adv/delete/{advId}")
 	ResponseEntity<Advertisement> deleteAdvertisement(@PathVariable("advId") int advId) throws AdvertisementNotFoundException{
+		//deleting the details of advertisement by passing the id 
 		Advertisement adv = advService.deleteAdvertisement(advId);
 		return new ResponseEntity<>(adv, HttpStatus.OK); //200 ok
 	}

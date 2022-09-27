@@ -14,13 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="admin")
-public class Admin {
+@Table(name="suplier")
+public class Supplier {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String username;
 	private String pwd;
+	private String email;
+	private long phn;
+	
 	
 }

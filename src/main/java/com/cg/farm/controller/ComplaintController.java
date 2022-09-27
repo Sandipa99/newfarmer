@@ -16,20 +16,17 @@ import com.cg.farm.service.ComplaintServiceImpl;
 @RestController
 public class ComplaintController {
 	
-	@GetMapping("/v2")
-	public String getname() {
-		return "sandipa";
-	}
-
 	@Autowired
-	ComplaintServiceImpl compServ;
+	ComplaintServiceImpl compServ;//creating the object of ComplaintServiceImpl
 	
+	//adding the complaint
 	@PostMapping("/complaint/add")
 	public ResponseEntity<Complaint> addComplaint(@RequestBody Complaint complaint) {
 		Complaint ck =compServ.addComplaint(complaint);
 		return new ResponseEntity<>(ck, HttpStatus.CREATED); 
 	}
 	
+	//getting the list of complaint
 	@GetMapping("/complaint/get/all")
 	public ResponseEntity<List<Complaint>> getAllComplaint() {
 		List<Complaint> comp = compServ.getAllComplaint();

@@ -21,16 +21,13 @@ public class Advertisement {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-//	@Column(name = "cropType",nullable=false)
+
 	private String cropType;
 	
-//	@Column(name = "quantity",nullable=false)
-	private int quantity;
+    private int quantity;
 
-//	@Column(name = "weight",nullable=false)
-	private String weight;
+    private String weight;
 	
-//	@Column(name = "price",nullable=false)
 	private String price;
 
 	private boolean status;
